@@ -1,3 +1,2 @@
-# selenium
-stepik auto tests course
-https://stepik.org/course/575
+Курс степика - https://stepik.org/course/575
+файл из пайчарма
