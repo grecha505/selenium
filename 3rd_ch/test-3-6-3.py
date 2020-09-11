@@ -1,6 +1,7 @@
 """
 https://stepik.org/lesson/237240/step/3
 """
+
 import pytest
 from selenium import webdriver
 import time
@@ -22,6 +23,7 @@ urls = ["https://stepik.org/lesson/236895/step/1",
 def answer():
     return str(math.log(int(time.time())))
 
+
 # фикстура открытия/закрытия
 @pytest.fixture(scope="function")
 def browser():
@@ -36,8 +38,10 @@ class TestCase:
     # задаем параметры для тестов
     @pytest.mark.parametrize("url", urls)
     def test_optional_feedback(self, browser, url):
+        # Открываем браузер, находим поле ввода
         browser.get(url)
         input1 = browser.find_element_by_css_selector(".ember-text-area")
+        # Передаем в поле ввода результат функции
         input1.send_keys(answer())
         button = browser.find_element_by_css_selector(".submit-submission")
         button.click()
